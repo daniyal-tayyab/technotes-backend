@@ -12,6 +12,7 @@ const connectDB = require('./config/dbConn.js');
 const mongoose = require('mongoose');
 
 const userRoutes = require('./routes/userRoutes.js');
+const noteRoutes = require('./routes/noteRoutes.js');
 
 const PORT = process.env.PORT || 3500;
 console.log(process.env.NODE_ENV);
@@ -33,6 +34,7 @@ app.use("/", express.static(path.join(__dirname, 'public')) );
 
 app.use("/", require('./routes/root'));
 app.use("/users", userRoutes);
+app.use("/notes", noteRoutes);
 
 
 // for 404 not found page
